@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Waterbear Workshop</title>
+  <meta name="description" content="Hands-on outdoor workshops for kids ages 6–12 and their grown-ups." />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://waterbearworkshop.org/about/">
+  <meta property="og:title" content="About Waterbear Workshop">
+  <meta property="og:description" content="Hands-on outdoor workshops for kids ages 6–12 and their grown-ups.">
+  <meta property="og:site_name" content="Waterbear Workshop">
+  <meta property="og:image" content="https://waterbearworkshop.org/assets/images/og-default.png">
+  
+  
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://waterbearworkshop.org/about/">
+  <meta property="twitter:title" content="About Waterbear Workshop">
+  <meta property="twitter:description" content="Hands-on outdoor workshops for kids ages 6–12 and their grown-ups.">
+  <meta property="twitter:image" content="https://waterbearworkshop.org/assets/images/og-default.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div class="wrap">
+    <aside>
+      <div class="brand">
+        <!--<div class="dot" aria-hidden="true"></div>-->
+        <div class="brand-hero">
+          <h1><a class="brand-link" href="/">Waterbear Workshop</a></h1>
+          <p class="brand-topics" style="color: #8B6914; font-size: 0.95rem;">Hands-on outdoor workshops where kids (ages 6&ndash;12) and their grown-ups make, tinker, and explore together &mdash; solar, radios, cardboard machines, cooking, and more.</p>
+          <nav class="brand-nav brand-nav-inline">
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/#sessions">Sessions</a></li>
+              <li><a href="/#how-it-works">How it works</a></li>
+              <li><a href="/about/">About</a></li>
+            </ul>
+          </nav>
+          <p class="brand-tagline" style="margin: 12px 0 4px 0; font-size: 0.95rem; font-style: italic; color: var(--muted); text-align: center;">
+            Questions? We'd love to hear from you!
+          </p>
+          <p class="contact-email" style="margin: 12px 0 0 0; font-size: 0.95rem;">
+            <a href="mailto:hello@waterbearworkshop.org?subject=Waterbear%20Workshop%20Inquiry">hello@waterbearworkshop.org</a>
+          </p>
+        </div>
+      </div>
+
+    </aside>
+
+    <main>
+      
+<article class="prose">
+  <h1>About Waterbear Workshop</h1>
+  
+  <h2>About Waterbear Workshop</h2>
+<p><strong>Waterbear Workshop</strong> runs short, hands-on, outdoor workshops where kids <strong>ages 6–12</strong> and an accompanying grown-up build real things side by side — solar-powered motors, radios that work without cell service, cardboard machines, off-grid cooking, and more.</p>
+<p>It's a sibling project of <a href="https://waterbearfieldschool.org/">Waterbear Field School</a>: the same learn-by-doing, off-grid, curiosity-first spirit, shaped into family-friendly sessions you can register for one at a time.</p>
+<h3>What a session is like</h3>
+<ul>
+<li><strong>Outdoors, in most weather.</strong> Dress for the day — mud and weather are part of the fun.</li>
+<li><strong>One grown-up per child.</strong> Kids and caregivers work as a team; grown-ups aren't spectators.</li>
+<li><strong>Everything provided.</strong> We bring the tools, parts, and materials. You bring curiosity.</li>
+<li><strong>Small groups.</strong> Sessions are capped so everyone gets hands on the hardware.</li>
+</ul>
+<h3>Who's behind it</h3>
+<p>Waterbear Workshop is run by the same crew of tinkerers, engineers, and educators behind Waterbear Field School and the <a href="https://edgecollective.io">Edge Collective</a> — folks who love helping people understand and build the technologies they depend on.</p>
+<h3>Get in touch</h3>
+<p>Questions, ideas, or want to host a session? Email us — we'd love to hear from you.</p>
+<p class="contact-email" style="text-align: center; margin: 16px 0;">
+  <a href="mailto:hello@waterbearworkshop.org?subject=Waterbear%20Workshop%20Inquiry">hello@waterbearworkshop.org</a>
+</p>
+
+</article>
+
+    </main>
+  </div>
+
+  
+
+  <script>
+    // Slideshow functionality
+    var slideIndex = 1;
+
+    function currentSlide(n) {
+      showSlide(slideIndex = n);
+    }
+
+    function showSlide(n) {
+      var slides = document.getElementsByClassName("slide");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+      }
+      for (var i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+      }
+      if (slides[slideIndex-1]) slides[slideIndex-1].classList.add("active");
+      if (dots[slideIndex-1]) dots[slideIndex-1].classList.add("active");
+    }
+
+    // Auto advance slides every 4 seconds
+    setInterval(function() {
+      slideIndex++;
+      showSlide(slideIndex);
+    }, 4000);
+  </script>
+</body>
+</html>

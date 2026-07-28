@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Waterbear Workshop — a1 · Calendar cart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#2a2a25;--bg:#fbf7ee;--muted:#6d6a5e;--green:#3f7d54;--green-d:#2c5b3c;--line:#ece4d3;--amber:#c77d3a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;padding-bottom:84px}
+  h1,h2,h3,.round{font-family:Fredoka,system-ui,sans-serif}
+  a{color:inherit}
+  .top{display:flex;align-items:center;gap:16px;padding:15px 26px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:38px;z-index:40}
+  .top .brand{font-family:Fredoka;font-weight:700;font-size:1.25rem;color:var(--green)}
+  .top nav{margin-left:auto;display:flex;gap:18px;font-weight:700}.top nav a{text-decoration:none;color:var(--green-d)}
+  .hero{text-align:center;padding:44px 24px 18px}
+  .hero .kick{display:inline-block;background:#fff;color:var(--green);font-weight:800;padding:6px 16px;border-radius:999px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+  .hero h1{font-size:clamp(2rem,5vw,2.9rem);color:var(--green-d);line-height:1.05;margin-bottom:10px}
+  .hero p{max-width:600px;margin:0 auto;color:var(--muted);font-size:1.08rem}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px 24px}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:6px 0 22px}
+  .legend .lg{display:flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-weight:700;font-size:.85rem}
+  .legend .sw{width:13px;height:13px;border-radius:5px}
+  .cal{width:100%;border-collapse:separate;border-spacing:8px}
+  .cal th{font-family:Fredoka;color:var(--green-d);font-weight:600;padding:4px;font-size:.95rem}
+  .cal .wk{font-family:Fredoka;color:var(--muted);font-weight:600;text-align:left;white-space:nowrap;padding-right:6px;font-size:.82rem}
+  .day{position:relative;border-radius:14px;padding:11px 10px 12px;background:#fff;border:2px solid var(--line);cursor:pointer;min-width:118px;text-align:left;transition:transform .08s;user-select:none}
+  .day:hover{transform:translateY(-2px)}
+  .day .stripe{height:5px;border-radius:3px;margin-bottom:8px}
+  .day .dn{font-size:.72rem;font-weight:800;color:var(--muted)}
+  .day .em{font-size:1.35rem}
+  .day .tn{font-family:Fredoka;font-weight:600;font-size:.9rem;line-height:1.1;color:var(--ink)}
+  .day .pr{font-weight:800;color:var(--green-d);font-size:.82rem;margin-top:5px}
+  .day .tick{position:absolute;top:8px;right:8px;width:22px;height:22px;border-radius:50%;background:var(--line);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;transition:.12s}
+  .day.sel{border-color:var(--green);box-shadow:0 4px 0 var(--green-d);background:#f2f9f4}
+  .day.sel .tick{background:var(--green)}
+  .cart{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--green-d);color:#fff;padding:12px 22px;display:flex;align-items:center;gap:16px;box-shadow:0 -4px 16px rgba(0,0,0,.15)}
+  .cart .sum{font-family:Fredoka;font-weight:600;font-size:1.05rem}
+  .cart .sum b{font-size:1.25rem}
+  .cart .hint{color:#bfe0cb;font-size:.85rem}
+  .cart .btn{margin-left:auto;background:#f0a92b;color:#3a2a06;font-family:Fredoka;font-weight:700;text-decoration:none;border:none;cursor:pointer;padding:11px 26px;border-radius:999px;box-shadow:0 3px 0 #c9871a;font-size:1rem}
+  .cart .btn:disabled{opacity:.5;cursor:not-allowed;box-shadow:none}
+  @media(max-width:760px){
+    .cal,.cal tbody,.cal tr{display:block}
+    .cal thead{display:none}
+    .cal tr{background:transparent;margin-bottom:8px}
+    .cal .wk{display:block;color:var(--green-d);font-size:1rem;margin:10px 0 6px;padding:0}
+    .cal td{display:inline-block;width:calc(50% - 6px)}
+    .top nav{display:none}
+    .cart .hint{display:none}
+  }
+  footer{text-align:center;color:var(--muted);font-size:.85rem;padding:26px}
+</style>
+</head>
+<body>
+<div style="position:fixed; top:0; left:0; right:0; z-index:9999; background:#1a1a1a; color:#fff; font:13px/1.2 Inter,system-ui,sans-serif; padding:7px 12px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+  <a href="/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">← All versions</a>
+  <a href="/v0/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v0 · Sidebar</a>
+  <a href="/v1/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v1 · Nature-program</a>
+  <a href="/v2/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v2 · Schedule</a>
+  <a href="/v3/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v3 · Editorial</a>
+  <a href="/v4/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v4 · Playful</a>
+  <a href="/v5/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v5 · Minimal</a>
+  <span style="opacity:.45;">│ monthly:</span>
+  <a href="/r1/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">r1 · Grid</a>
+  <a href="/r2/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">r2 · Pick-a-day</a>
+  <a href="/r3/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">r3 · Membership</a>
+  <span style="opacity:.45;">│ à la carte:</span>
+  <a href="/a1/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:#7d6cc4;">a1 · Calendar cart</a>
+  <a href="/a2/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">a2 · Menu</a>
+  <a href="/a3/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">a3 · Credits</a>
+  <span style="opacity:.6; margin-left:auto;">preview switcher — remove before launch</span>
+</div>
+<div style="height:38px;"></div>
+
+<header class="top">
+  <div class="brand">🐻 Waterbear Workshop</div>
+  <nav><a href="/about/">About</a><a href="mailto:hello@waterbearworkshop.org">Contact</a></nav>
+</header>
+
+<section class="hero">
+  <div class="kick">🗓️ September 2026 · Ages 6–12 · à la carte</div>
+  <h1>Build your own month.</h1>
+  <p>Here's everything happening this month. Tap any days you like — mix and match as many as you want — then register for just those. $22 per event.</p>
+</section>
+
+<div class="wrap">
+  <div class="legend">
+    <span class="lg"><span class="sw" style="background:#e8794b"></span>🔥 Campfire Cooks</span><span class="lg"><span class="sw" style="background:#c98a3f"></span>📦 Cardboard Machines</span><span class="lg"><span class="sw" style="background:#e0a92b"></span>☀️ Solar Explorers</span><span class="lg"><span class="sw" style="background:#6d78c4"></span>📡 Radio Messengers</span><span class="lg"><span class="sw" style="background:#3f9fb5"></span>💧 Water Works</span>
+  </div>
+
+  <table class="cal">
+    <thead><tr><th></th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th></tr></thead>
+    <tbody>
+      
+      <tr>
+        <td class="wk">Week 1<br><span style="font-weight:400;font-size:.76rem">Sep 7–11</span></td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Campfire Cooks · Sep 7">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#e8794b"></div>
+            <div class="dn">MON · SEP 7</div>
+            <div class="em">🔥</div>
+            <div class="tn">Campfire Cooks</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Cardboard Machines · Sep 8">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#c98a3f"></div>
+            <div class="dn">TUE · SEP 8</div>
+            <div class="em">📦</div>
+            <div class="tn">Cardboard Machines</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Solar Explorers · Sep 9">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#e0a92b"></div>
+            <div class="dn">WED · SEP 9</div>
+            <div class="em">☀️</div>
+            <div class="tn">Solar Explorers</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Radio Messengers · Sep 10">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#6d78c4"></div>
+            <div class="dn">THU · SEP 10</div>
+            <div class="em">📡</div>
+            <div class="tn">Radio Messengers</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Water Works · Sep 11">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#3f9fb5"></div>
+            <div class="dn">FRI · SEP 11</div>
+            <div class="em">💧</div>
+            <div class="tn">Water Works</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+      </tr>
+      
+      <tr>
+        <td class="wk">Week 2<br><span style="font-weight:400;font-size:.76rem">Sep 14–18</span></td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Cardboard Machines · Sep 14">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#c98a3f"></div>
+            <div class="dn">MON · SEP 14</div>
+            <div class="em">📦</div>
+            <div class="tn">Cardboard Machines</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Solar Explorers · Sep 15">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#e0a92b"></div>
+            <div class="dn">TUE · SEP 15</div>
+            <div class="em">☀️</div>
+            <div class="tn">Solar Explorers</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Radio Messengers · Sep 16">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#6d78c4"></div>
+            <div class="dn">WED · SEP 16</div>
+            <div class="em">📡</div>
+            <div class="tn">Radio Messengers</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Water Works · Sep 17">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#3f9fb5"></div>
+            <div class="dn">THU · SEP 17</div>
+            <div class="em">💧</div>
+            <div class="tn">Water Works</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Campfire Cooks · Sep 18">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#e8794b"></div>
+            <div class="dn">FRI · SEP 18</div>
+            <div class="em">🔥</div>
+            <div class="tn">Campfire Cooks</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+      </tr>
+      
+      <tr>
+        <td class="wk">Week 3<br><span style="font-weight:400;font-size:.76rem">Sep 21–25</span></td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Solar Explorers · Sep 21">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#e0a92b"></div>
+            <div class="dn">MON · SEP 21</div>
+            <div class="em">☀️</div>
+            <div class="tn">Solar Explorers</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Radio Messengers · Sep 22">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#6d78c4"></div>
+            <div class="dn">TUE · SEP 22</div>
+            <div class="em">📡</div>
+            <div class="tn">Radio Messengers</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Water Works · Sep 23">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#3f9fb5"></div>
+            <div class="dn">WED · SEP 23</div>
+            <div class="em">💧</div>
+            <div class="tn">Water Works</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Campfire Cooks · Sep 24">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#e8794b"></div>
+            <div class="dn">THU · SEP 24</div>
+            <div class="em">🔥</div>
+            <div class="tn">Campfire Cooks</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Cardboard Machines · Sep 25">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#c98a3f"></div>
+            <div class="dn">FRI · SEP 25</div>
+            <div class="em">📦</div>
+            <div class="tn">Cardboard Machines</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+      </tr>
+      
+      <tr>
+        <td class="wk">Week 4<br><span style="font-weight:400;font-size:.76rem">Sep 28 – Oct 2</span></td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Radio Messengers · Sep 28">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#6d78c4"></div>
+            <div class="dn">MON · SEP 28</div>
+            <div class="em">📡</div>
+            <div class="tn">Radio Messengers</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Water Works · Sep 29">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#3f9fb5"></div>
+            <div class="dn">TUE · SEP 29</div>
+            <div class="em">💧</div>
+            <div class="tn">Water Works</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Campfire Cooks · Sep 30">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#e8794b"></div>
+            <div class="dn">WED · SEP 30</div>
+            <div class="em">🔥</div>
+            <div class="tn">Campfire Cooks</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Cardboard Machines · Oct 1">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#c98a3f"></div>
+            <div class="dn">THU · OCT 1</div>
+            <div class="em">📦</div>
+            <div class="tn">Cardboard Machines</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+        <td>
+          <div class="day" data-price="22" data-label="Solar Explorers · Oct 2">
+            <div class="tick">+</div>
+            <div class="stripe" style="background:#e0a92b"></div>
+            <div class="dn">FRI · OCT 2</div>
+            <div class="em">☀️</div>
+            <div class="tn">Solar Explorers</div>
+            <div class="pr">$22</div>
+          </div>
+        </td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<div class="cart">
+  <div class="sum"><b id="count">0</b> events · <b>$<span id="total">0</span></b></div>
+  <span class="hint" id="hint">Tap days above to add them</span>
+  <button class="btn" id="checkout" disabled>Register selected →</button>
+</div>
+
+<footer>Waterbear Workshop · sessions 3:30–5:00 PM · one child + a grown-up per event</footer>
+
+<script>
+  var sel=new Set(), price=22;
+  var cEl=document.getElementById('count'),tEl=document.getElementById('total'),
+      btn=document.getElementById('checkout'),hint=document.getElementById('hint');
+  function refresh(){
+    var n=sel.size;
+    cEl.textContent=n; tEl.textContent=n*price;
+    btn.disabled=n===0;
+    hint.textContent = n===0 ? 'Tap days above to add them' : n+' selected — nice mix!';
+  }
+  document.querySelectorAll('.day').forEach(function(d,i){
+    d.addEventListener('click',function(){
+      var key=d.dataset.label+i;
+      if(sel.has(key)){sel.delete(key);d.classList.remove('sel');d.querySelector('.tick').textContent='+';}
+      else{sel.add(key);d.classList.add('sel');d.querySelector('.tick').textContent='✓';}
+      refresh();
+    });
+  });
+  btn.addEventListener('click',function(){
+    alert('Prototype checkout — '+sel.size+' event(s), $'+(sel.size*price)+'.\n\nIn the real site this hands the selected events to Snipcart as line items.');
+  });
+</script>
+</body>
+</html>

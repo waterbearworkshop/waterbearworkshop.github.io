@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Waterbear Workshop — a3 · Credit packs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#20241f;--bg:#f7f6f1;--muted:#6b6f64;--accent:#b4632a;--accent-d:#8f4c1c;--accent-l:#f7ece1;--line:#e6e3da;--ink2:#2f4a34}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+  h1,h2,h3,.gk{font-family:'Space Grotesk',system-ui,sans-serif}
+  a{color:inherit}
+  .top{display:flex;align-items:center;gap:14px;padding:15px 30px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:38px;z-index:40}
+  .top .brand{font-family:'Space Grotesk';font-weight:700;font-size:1.15rem;color:var(--accent)}
+  .top nav{margin-left:auto;display:flex;gap:20px;font-size:.92rem;font-weight:600}.top nav a{text-decoration:none;color:var(--muted)}
+  .hero{text-align:center;padding:58px 24px 26px;max-width:720px;margin:0 auto}
+  .hero .ey{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px}
+  .hero h1{font-size:clamp(2rem,5vw,3rem);letter-spacing:-.02em;line-height:1.05;margin-bottom:14px}
+  .hero p{font-size:1.1rem;color:var(--muted)}
+  .wrap{max-width:1000px;margin:0 auto;padding:24px}
+  h2.sec{text-align:center;font-size:1.5rem;margin:36px 0 6px}
+  .sub{text-align:center;color:var(--muted);margin-bottom:24px}
+  .packs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+  @media(max-width:720px){.packs{grid-template-columns:1fr}.top nav{display:none}}
+  .pack{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px;text-align:center;display:flex;flex-direction:column}
+  .pack.feat{border:2px solid var(--accent);box-shadow:0 12px 30px rgba(180,99,42,.13);position:relative}
+  .pack.feat .flag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 14px;border-radius:999px}
+  .pack .cr{font-family:'Space Grotesk';font-weight:700;font-size:2.6rem;color:var(--ink2);line-height:1}
+  .pack .crl{font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;font-size:.82rem;margin:6px 0 14px}
+  .pack .amt{font-size:1.6rem;font-weight:700}
+  .pack .per{color:var(--muted);font-size:.9rem;margin-bottom:4px}
+  .pack .note{color:var(--muted);font-size:.9rem;flex:1;margin:12px 0 18px}
+  .pack .buy{display:block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:11px;border-radius:10px}
+  .pack:not(.feat) .buy{background:var(--accent-l);color:var(--accent-d)}
+  .how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+  @media(max-width:640px){.how{grid-template-columns:1fr}}
+  .how .h{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center}
+  .how .h .n{width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-family:'Space Grotesk'}
+  .how .h p{color:var(--muted);font-size:.92rem}
+  .board{background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px;margin-top:6px}
+  .ev{display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;padding:11px 14px;border-radius:10px}
+  .ev+.ev{border-top:1px solid var(--line)}
+  .ev .dc{text-align:center;border-radius:8px;padding:6px 3px;color:#fff;line-height:1.05}
+  .ev .dc .wd{font-size:.6rem;font-weight:800;text-transform:uppercase;opacity:.9}
+  .ev .dc .dy{font-size:1.05rem;font-weight:800}
+  .ev h3{font-size:1rem;font-weight:600}
+  .ev .credit{font-weight:700;color:var(--accent);white-space:nowrap;font-size:.9rem}
+  footer{text-align:center;color:var(--muted);font-size:.88rem;padding:34px;border-top:1px solid var(--line);margin-top:36px}
+  footer a{color:var(--accent);font-weight:600;text-decoration:none}
+</style>
+</head>
+<body>
+<div style="position:fixed; top:0; left:0; right:0; z-index:9999; background:#1a1a1a; color:#fff; font:13px/1.2 Inter,system-ui,sans-serif; padding:7px 12px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+  <a href="/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">← All versions</a>
+  <a href="/v0/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v0 · Sidebar</a>
+  <a href="/v1/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v1 · Nature-program</a>
+  <a href="/v2/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v2 · Schedule</a>
+  <a href="/v3/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v3 · Editorial</a>
+  <a href="/v4/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v4 · Playful</a>
+  <a href="/v5/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v5 · Minimal</a>
+  <span style="opacity:.45;">│ monthly:</span>
+  <a href="/r1/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">r1 · Grid</a>
+  <a href="/r2/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">r2 · Pick-a-day</a>
+  <a href="/r3/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">r3 · Membership</a>
+  <span style="opacity:.45;">│ à la carte:</span>
+  <a href="/a1/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">a1 · Calendar cart</a>
+  <a href="/a2/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">a2 · Menu</a>
+  <a href="/a3/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:#7d6cc4;">a3 · Credits</a>
+  <span style="opacity:.6; margin-left:auto;">preview switcher — remove before launch</span>
+</div>
+<div style="height:38px;"></div>
+
+<header class="top">
+  <div class="brand">🐻 Waterbear Workshop</div>
+  <nav><a href="#packs">Credit packs</a><a href="#board">This month</a><a href="/about/">About</a></nav>
+</header>
+
+<section class="hero">
+  <div class="ey">À la carte credits · September 2026 · Ages 6–12</div>
+  <h1>Buy credits. Spend them any way you like.</h1>
+  <p>Grab a pack of workshop credits and redeem them on whatever events fit your week — no fixed schedule, no monthly commitment. One credit = one event for one child (+ a grown-up).</p>
+</section>
+
+<div class="wrap">
+  <h2 class="sec" id="packs">Pick a credit pack</h2>
+  <p class="sub">The bigger the pack, the lower the per-event price. Credits don't expire mid-season.</p>
+  <div class="packs">
+    
+    <div class="pack">
+      
+      <div class="cr">3</div>
+      <div class="crl">credits</div>
+      <div class="amt">$60</div>
+      <div class="per">$20 per event</div>
+      <div class="note">Try a few — any three events.</div>
+      <a class="buy" href="mailto:hello@waterbearworkshop.org?subject=3-credit%20pack">Buy 3 credits</a>
+    </div>
+    
+    <div class="pack feat">
+      <div class="flag">Best starter</div>
+      <div class="cr">6</div>
+      <div class="crl">credits</div>
+      <div class="amt">$108</div>
+      <div class="per">$18 per event</div>
+      <div class="note">A season sampler.</div>
+      <a class="buy" href="mailto:hello@waterbearworkshop.org?subject=6-credit%20pack">Buy 6 credits</a>
+    </div>
+    
+    <div class="pack">
+      
+      <div class="cr">12</div>
+      <div class="crl">credits</div>
+      <div class="amt">$192</div>
+      <div class="per">$16 per event</div>
+      <div class="note">Best per-event value.</div>
+      <a class="buy" href="mailto:hello@waterbearworkshop.org?subject=12-credit%20pack">Buy 12 credits</a>
+    </div>
+    
+  </div>
+
+  <h2 class="sec">How credits work</h2>
+  <div class="how">
+    <div class="h"><div class="n">1</div><p>Buy a pack of credits up front — 3, 6, or 12.</p></div>
+    <div class="h"><div class="n">2</div><p>Browse the month and reserve any events you like.</p></div>
+    <div class="h"><div class="n">3</div><p>Each reservation spends one credit. Come as often — or as little — as you want.</p></div>
+  </div>
+
+  <h2 class="sec" id="board">Spend them on any of these</h2>
+  <p class="sub">20 events this month · 3:30–5:00 PM · 1 credit each</p>
+  <div class="board">
+    
+    <div class="ev">
+      <div class="dc" style="background:#e8794b"><div class="wd">Mon</div><div class="dy">7</div></div>
+      <h3>🔥 Campfire Cooks</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+    <div class="ev">
+      <div class="dc" style="background:#c98a3f"><div class="wd">Tue</div><div class="dy">8</div></div>
+      <h3>📦 Cardboard Machines</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+    <div class="ev">
+      <div class="dc" style="background:#e0a92b"><div class="wd">Wed</div><div class="dy">9</div></div>
+      <h3>☀️ Solar Explorers</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+    <div class="ev">
+      <div class="dc" style="background:#6d78c4"><div class="wd">Thu</div><div class="dy">10</div></div>
+      <h3>📡 Radio Messengers</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+    <div class="ev">
+      <div class="dc" style="background:#3f9fb5"><div class="wd">Fri</div><div class="dy">11</div></div>
+      <h3>💧 Water Works</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+    <div class="ev">
+      <div class="dc" style="background:#c98a3f"><div class="wd">Mon</div><div class="dy">14</div></div>
+      <h3>📦 Cardboard Machines</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+    <div class="ev">
+      <div class="dc" style="background:#e0a92b"><div class="wd">Tue</div><div class="dy">15</div></div>
+      <h3>☀️ Solar Explorers</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+    <div class="ev">
+      <div class="dc" style="background:#6d78c4"><div class="wd">Wed</div><div class="dy">16</div></div>
+      <h3>📡 Radio Messengers</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+    <div class="ev">
+      <div class="dc" style="background:#3f9fb5"><div class="wd">Thu</div><div class="dy">17</div></div>
+      <h3>💧 Water Works</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+    <div class="ev">
+      <div class="dc" style="background:#e8794b"><div class="wd">Fri</div><div class="dy">18</div></div>
+      <h3>🔥 Campfire Cooks</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+    <div class="ev">
+      <div class="dc" style="background:#e0a92b"><div class="wd">Mon</div><div class="dy">21</div></div>
+      <h3>☀️ Solar Explorers</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+    <div class="ev">
+      <div class="dc" style="background:#6d78c4"><div class="wd">Tue</div><div class="dy">22</div></div>
+      <h3>📡 Radio Messengers</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+    <div class="ev">
+      <div class="dc" style="background:#3f9fb5"><div class="wd">Wed</div><div class="dy">23</div></div>
+      <h3>💧 Water Works</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+    <div class="ev">
+      <div class="dc" style="background:#e8794b"><div class="wd">Thu</div><div class="dy">24</div></div>
+      <h3>🔥 Campfire Cooks</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+    <div class="ev">
+      <div class="dc" style="background:#c98a3f"><div class="wd">Fri</div><div class="dy">25</div></div>
+      <h3>📦 Cardboard Machines</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+    <div class="ev">
+      <div class="dc" style="background:#6d78c4"><div class="wd">Mon</div><div class="dy">28</div></div>
+      <h3>📡 Radio Messengers</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+    <div class="ev">
+      <div class="dc" style="background:#3f9fb5"><div class="wd">Tue</div><div class="dy">29</div></div>
+      <h3>💧 Water Works</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+    <div class="ev">
+      <div class="dc" style="background:#e8794b"><div class="wd">Wed</div><div class="dy">30</div></div>
+      <h3>🔥 Campfire Cooks</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+    <div class="ev">
+      <div class="dc" style="background:#c98a3f"><div class="wd">Thu</div><div class="dy">1</div></div>
+      <h3>📦 Cardboard Machines</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+    <div class="ev">
+      <div class="dc" style="background:#e0a92b"><div class="wd">Fri</div><div class="dy">2</div></div>
+      <h3>☀️ Solar Explorers</h3>
+      <div class="credit">1 credit</div>
+    </div>
+    
+  </div>
+</div>
+
+<footer>Waterbear Workshop · à la carte credits · <a href="mailto:hello@waterbearworkshop.org">hello@waterbearworkshop.org</a></footer>
+</body>
+</html>

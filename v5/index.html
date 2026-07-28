@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Waterbear Workshop — v5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#171715;--bg:#faf9f6;--muted:#8a887f;--line:#eae8e1;--accent:#3d5a3a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;font-weight:300}
+  h1,h2,h3,.grotesk{font-family:'Space Grotesk',system-ui,sans-serif;font-weight:500}
+  a{color:inherit}
+  .top{display:flex;align-items:center;padding:34px 48px;max-width:1000px;margin:0 auto}
+  .top .brand{font-family:'Space Grotesk';font-weight:600;letter-spacing:-.01em}
+  .top nav{margin-left:auto;display:flex;gap:32px;font-size:.9rem;color:var(--muted)}
+  .top nav a{text-decoration:none}
+  .top nav a:hover{color:var(--ink)}
+  .hero{max-width:1000px;margin:0 auto;padding:80px 48px 60px}
+  .hero .tag{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+  .hero h1{font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:400;line-height:1.08;letter-spacing:-.02em;max-width:720px;margin-bottom:26px}
+  .hero p{font-size:1.1rem;color:var(--muted);max-width:500px;margin-bottom:34px}
+  .hero a.cta{font-family:'Space Grotesk';font-size:.95rem;text-decoration:none;color:var(--ink);border:1px solid var(--ink);padding:12px 26px;border-radius:2px;transition:.15s}
+  .hero a.cta:hover{background:var(--ink);color:var(--bg)}
+  .sessions{max-width:1000px;margin:0 auto;padding:30px 48px 90px}
+  .sessions>.lbl{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-bottom:18px;border-bottom:1px solid var(--line)}
+  .item{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;padding:30px 4px;border-bottom:1px solid var(--line);text-decoration:none;transition:.15s}
+  .item:hover{padding-left:14px;padding-right:14px;background:#fff}
+  .item .idx{font-family:'Space Grotesk';font-size:.85rem;color:var(--muted);margin-bottom:8px}
+  .item h3{font-size:1.5rem;font-weight:400;letter-spacing:-.01em;margin-bottom:8px}
+  .item .m{color:var(--muted);font-size:.95rem;max-width:520px}
+  .item .aside{text-align:right;white-space:nowrap}
+  .item .aside .d{font-family:'Space Grotesk';font-size:.92rem}
+  .item .aside .p{color:var(--muted);font-size:.85rem;margin-top:4px}
+  .item .aside .arrow{margin-top:12px;font-size:1.1rem;color:var(--accent)}
+  @media(max-width:640px){.item{grid-template-columns:1fr}.item .aside{text-align:left}.top nav{display:none}}
+  footer{max-width:1000px;margin:0 auto;padding:40px 48px 70px;color:var(--muted);font-size:.9rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  footer a{text-decoration:none;color:var(--ink)}
+</style>
+</head>
+<body>
+<div style="position:fixed; top:0; left:0; right:0; z-index:9999; background:#1a1a1a; color:#fff; font:13px/1.2 Inter,system-ui,sans-serif; padding:7px 12px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+  <a href="/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">← All versions</a>
+  <a href="/v0/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v0 · Sidebar</a>
+  <a href="/v1/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v1 · Nature-program</a>
+  <a href="/v2/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v2 · Schedule</a>
+  <a href="/v3/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v3 · Editorial</a>
+  <a href="/v4/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v4 · Playful</a>
+  <a href="/v5/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:#4a8f6d;">v5 · Minimal</a>
+  <span style="opacity:.45;">│ monthly:</span>
+  <a href="/r1/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">r1 · Grid</a>
+  <a href="/r2/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">r2 · Pick-a-day</a>
+  <a href="/r3/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">r3 · Membership</a>
+  <span style="opacity:.45;">│ à la carte:</span>
+  <a href="/a1/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">a1 · Calendar cart</a>
+  <a href="/a2/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">a2 · Menu</a>
+  <a href="/a3/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">a3 · Credits</a>
+  <span style="opacity:.6; margin-left:auto;">preview switcher — remove before launch</span>
+</div>
+<div style="height:38px;"></div>
+
+<header class="top">
+  <div class="brand">Waterbear Workshop</div>
+  <nav><a href="#sessions">Sessions</a><a href="/about/">About</a><a href="mailto:hello@waterbearworkshop.org">Contact</a></nav>
+</header>
+
+<section class="hero">
+  <div class="tag">Ages 6–12 · with a grown-up</div>
+  <h1>Small, hands-on workshops for children and the adults who bring them.</h1>
+  <p>Make real things, outdoors, in good company. A quiet antidote to screens — build it together, take it home.</p>
+  <a class="cta" href="#sessions">View sessions</a>
+</section>
+
+<section class="sessions" id="sessions">
+  <div class="lbl">Upcoming — Autumn 2026</div>
+  
+  <a class="item" href="/sessions/campfire-cooks/">
+    <div>
+      <div class="idx">01 / Ages 7–12</div>
+      <h3>Campfire Cooks</h3>
+      <div class="m">Cook a snack over a little rocket stove and learn how fire really works.</div>
+    </div>
+    <div class="aside">
+      <div class="d">Saturday, October 17, 2026</div>
+      <div class="p">Lincoln, MA · $20</div>
+      <div class="arrow">Reserve →</div>
+    </div>
+  </a>
+  
+  <a class="item" href="/sessions/cardboard-machines/">
+    <div>
+      <div class="idx">02 / Ages 6–12</div>
+      <h3>Cardboard Machines</h3>
+      <div class="m">Turn a pile of cardboard into a moving machine — gears, cranks, and contraptions.</div>
+    </div>
+    <div class="aside">
+      <div class="d">Saturday, October 3, 2026</div>
+      <div class="p">Lincoln, MA · $20</div>
+      <div class="arrow">Reserve →</div>
+    </div>
+  </a>
+  
+  <a class="item" href="/sessions/radio-messengers/">
+    <div>
+      <div class="idx">03 / Ages 8–12</div>
+      <h3>Radio Messengers</h3>
+      <div class="m">Send secret messages across a field using radios that need no cell service or internet.</div>
+    </div>
+    <div class="aside">
+      <div class="d">Saturday, September 19, 2026</div>
+      <div class="p">Lincoln, MA · $25</div>
+      <div class="arrow">Reserve →</div>
+    </div>
+  </a>
+  
+  <a class="item" href="/sessions/solar-explorers/">
+    <div>
+      <div class="idx">04 / Ages 6–12</div>
+      <h3>Solar Explorers</h3>
+      <div class="m">Build a little solar-powered machine and find out what sunlight can do.</div>
+    </div>
+    <div class="aside">
+      <div class="d">Saturday, September 12, 2026</div>
+      <div class="p">Lincoln, MA · $25</div>
+      <div class="arrow">Reserve →</div>
+    </div>
+  </a>
+  
+</section>
+
+<footer>
+  <span>Waterbear Workshop</span>
+  <a href="mailto:hello@waterbearworkshop.org">hello@waterbearworkshop.org</a>
+</footer>
+</body>
+</html>

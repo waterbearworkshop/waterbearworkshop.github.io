@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Waterbear Workshop — r1 · Rotation grid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#2a2a25;--bg:#fbf7ee;--muted:#6d6a5e;--green:#3f7d54;--green-d:#2c5b3c;--line:#ece4d3}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+  h1,h2,h3,.round{font-family:Fredoka,system-ui,sans-serif}
+  a{color:inherit}
+  .top{display:flex;align-items:center;gap:16px;padding:15px 26px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:38px;z-index:40}
+  .top .brand{font-family:Fredoka;font-weight:700;font-size:1.25rem;color:var(--green)}
+  .top nav{margin-left:auto;display:flex;gap:18px;font-weight:700}
+  .top nav a{text-decoration:none;color:var(--green-d)}
+  .btn{display:inline-block;background:var(--green);color:#fff;font-weight:800;text-decoration:none;padding:12px 26px;border-radius:999px;box-shadow:0 3px 0 var(--green-d)}
+  .btn:hover{transform:translateY(-2px)}
+  .hero{text-align:center;padding:48px 24px 24px}
+  .hero .kick{display:inline-block;background:#fff;color:var(--green);font-weight:800;padding:6px 16px;border-radius:999px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+  .hero h1{font-size:clamp(2rem,5vw,3rem);color:var(--green-d);line-height:1.05;margin-bottom:12px}
+  .hero p{max-width:640px;margin:0 auto;color:var(--muted);font-size:1.1rem}
+  .wrap{max-width:1080px;margin:0 auto;padding:24px}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:8px 0 26px}
+  .legend .lg{display:flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-weight:700;font-size:.88rem}
+  .legend .sw{width:14px;height:14px;border-radius:5px}
+  .cal{width:100%;border-collapse:separate;border-spacing:8px}
+  .cal th{font-family:Fredoka;color:var(--green-d);font-weight:600;padding:6px;font-size:1rem}
+  .cal .wk{font-family:Fredoka;color:var(--muted);font-weight:600;text-align:left;white-space:nowrap;padding-right:6px;font-size:.9rem}
+  .cell{border-radius:14px;padding:12px 10px;color:#fff;min-width:120px;box-shadow:0 3px 0 rgba(0,0,0,.10)}
+  .cell .dn{font-size:.72rem;font-weight:800;opacity:.85}
+  .cell .em{font-size:1.5rem;line-height:1.4}
+  .cell .tn{font-family:Fredoka;font-weight:600;font-size:.95rem;line-height:1.1}
+  .note{background:#eaf4ec;border:1px solid #cfe6d6;border-radius:16px;padding:18px 22px;margin:26px 0;color:var(--green-d);font-weight:600;text-align:center}
+  .cta{text-align:center;padding:10px 0 50px}
+  .cta .price{font-family:Fredoka;color:var(--green-d);font-size:1.1rem;margin-bottom:12px}
+  @media(max-width:760px){
+    .cal,.cal tbody,.cal tr{display:block}
+    .cal thead{display:none}
+    .cal tr{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:14px}
+    .cal .wk{display:block;font-size:1.05rem;color:var(--green-d);margin-bottom:8px;padding:0}
+    .cal td{display:inline-block;width:calc(50% - 6px)}
+    .top nav{display:none}
+  }
+  footer{background:var(--green-d);color:#dfeede;text-align:center;padding:36px 24px}
+  footer a{color:#f0a92b;font-weight:700;text-decoration:none}
+</style>
+</head>
+<body>
+<div style="position:fixed; top:0; left:0; right:0; z-index:9999; background:#1a1a1a; color:#fff; font:13px/1.2 Inter,system-ui,sans-serif; padding:7px 12px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+  <a href="/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">← All versions</a>
+  <a href="/v0/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v0 · Sidebar</a>
+  <a href="/v1/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v1 · Nature-program</a>
+  <a href="/v2/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v2 · Schedule</a>
+  <a href="/v3/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v3 · Editorial</a>
+  <a href="/v4/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v4 · Playful</a>
+  <a href="/v5/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v5 · Minimal</a>
+  <span style="opacity:.45;">│ monthly:</span>
+  <a href="/r1/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:#c77d3a;">r1 · Grid</a>
+  <a href="/r2/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">r2 · Pick-a-day</a>
+  <a href="/r3/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">r3 · Membership</a>
+  <span style="opacity:.45;">│ à la carte:</span>
+  <a href="/a1/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">a1 · Calendar cart</a>
+  <a href="/a2/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">a2 · Menu</a>
+  <a href="/a3/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">a3 · Credits</a>
+  <span style="opacity:.6; margin-left:auto;">preview switcher — remove before launch</span>
+</div>
+<div style="height:38px;"></div>
+
+<header class="top">
+  <div class="brand">🐻 Waterbear Workshop</div>
+  <nav><a href="#cal">Schedule</a><a href="/about/">About</a><a class="btn" href="#cta">Enroll</a></nav>
+</header>
+
+<section class="hero">
+  <div class="kick">🗓️ Afterschool · September 2026 · Ages 6–12</div>
+  <h1>A different build every day.<br>Enroll for the month.</h1>
+  <p>Each weekday has its own theme — and the themes <strong>rotate every week</strong>. Come one day a week and you'll cycle through all five over the month. Come more, and get there faster.</p>
+</section>
+
+<div class="wrap">
+  <div class="legend">
+    
+    <span class="lg"><span class="sw" style="background:#e8794b"></span>🔥 Campfire Cooks</span>
+    
+    <span class="lg"><span class="sw" style="background:#c98a3f"></span>📦 Cardboard Machines</span>
+    
+    <span class="lg"><span class="sw" style="background:#e0a92b"></span>☀️ Solar Explorers</span>
+    
+    <span class="lg"><span class="sw" style="background:#6d78c4"></span>📡 Radio Messengers</span>
+    
+    <span class="lg"><span class="sw" style="background:#3f9fb5"></span>💧 Water Works</span>
+    
+  </div>
+
+  <table class="cal" id="cal">
+    <thead>
+      <tr><th></th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th></tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td class="wk">Week 1<br><span style="font-weight:400;font-size:.8rem">Sep 7–11</span></td>
+        
+        <td><div class="cell" style="background:#e8794b;box-shadow:0 3px 0 #c85c33">
+          <div class="dn">SEP 7</div>
+          <div class="em">🔥</div>
+          <div class="tn">Campfire Cooks</div>
+        </div></td>
+        
+        <td><div class="cell" style="background:#c98a3f;box-shadow:0 3px 0 #a86f28">
+          <div class="dn">SEP 8</div>
+          <div class="em">📦</div>
+          <div class="tn">Cardboard Machines</div>
+        </div></td>
+        
+        <td><div class="cell" style="background:#e0a92b;box-shadow:0 3px 0 #bd8c15">
+          <div class="dn">SEP 9</div>
+          <div class="em">☀️</div>
+          <div class="tn">Solar Explorers</div>
+        </div></td>
+        
+        <td><div class="cell" style="background:#6d78c4;box-shadow:0 3px 0 #4f5aa6">
+          <div class="dn">SEP 10</div>
+          <div class="em">📡</div>
+          <div class="tn">Radio Messengers</div>
+        </div></td>
+        
+        <td><div class="cell" style="background:#3f9fb5;box-shadow:0 3px 0 #2c8299">
+          <div class="dn">SEP 11</div>
+          <div class="em">💧</div>
+          <div class="tn">Water Works</div>
+        </div></td>
+        
+      </tr>
+      
+      <tr>
+        <td class="wk">Week 2<br><span style="font-weight:400;font-size:.8rem">Sep 14–18</span></td>
+        
+        <td><div class="cell" style="background:#c98a3f;box-shadow:0 3px 0 #a86f28">
+          <div class="dn">SEP 14</div>
+          <div class="em">📦</div>
+          <div class="tn">Cardboard Machines</div>
+        </div></td>
+        
+        <td><div class="cell" style="background:#e0a92b;box-shadow:0 3px 0 #bd8c15">
+          <div class="dn">SEP 15</div>
+          <div class="em">☀️</div>
+          <div class="tn">Solar Explorers</div>
+        </div></td>
+        
+        <td><div class="cell" style="background:#6d78c4;box-shadow:0 3px 0 #4f5aa6">
+          <div class="dn">SEP 16</div>
+          <div class="em">📡</div>
+          <div class="tn">Radio Messengers</div>
+        </div></td>
+        
+        <td><div class="cell" style="background:#3f9fb5;box-shadow:0 3px 0 #2c8299">
+          <div class="dn">SEP 17</div>
+          <div class="em">💧</div>
+          <div class="tn">Water Works</div>
+        </div></td>
+        
+        <td><div class="cell" style="background:#e8794b;box-shadow:0 3px 0 #c85c33">
+          <div class="dn">SEP 18</div>
+          <div class="em">🔥</div>
+          <div class="tn">Campfire Cooks</div>
+        </div></td>
+        
+      </tr>
+      
+      <tr>
+        <td class="wk">Week 3<br><span style="font-weight:400;font-size:.8rem">Sep 21–25</span></td>
+        
+        <td><div class="cell" style="background:#e0a92b;box-shadow:0 3px 0 #bd8c15">
+          <div class="dn">SEP 21</div>
+          <div class="em">☀️</div>
+          <div class="tn">Solar Explorers</div>
+        </div></td>
+        
+        <td><div class="cell" style="background:#6d78c4;box-shadow:0 3px 0 #4f5aa6">
+          <div class="dn">SEP 22</div>
+          <div class="em">📡</div>
+          <div class="tn">Radio Messengers</div>
+        </div></td>
+        
+        <td><div class="cell" style="background:#3f9fb5;box-shadow:0 3px 0 #2c8299">
+          <div class="dn">SEP 23</div>
+          <div class="em">💧</div>
+          <div class="tn">Water Works</div>
+        </div></td>
+        
+        <td><div class="cell" style="background:#e8794b;box-shadow:0 3px 0 #c85c33">
+          <div class="dn">SEP 24</div>
+          <div class="em">🔥</div>
+          <div class="tn">Campfire Cooks</div>
+        </div></td>
+        
+        <td><div class="cell" style="background:#c98a3f;box-shadow:0 3px 0 #a86f28">
+          <div class="dn">SEP 25</div>
+          <div class="em">📦</div>
+          <div class="tn">Cardboard Machines</div>
+        </div></td>
+        
+      </tr>
+      
+      <tr>
+        <td class="wk">Week 4<br><span style="font-weight:400;font-size:.8rem">Sep 28 – Oct 2</span></td>
+        
+        <td><div class="cell" style="background:#6d78c4;box-shadow:0 3px 0 #4f5aa6">
+          <div class="dn">SEP 28</div>
+          <div class="em">📡</div>
+          <div class="tn">Radio Messengers</div>
+        </div></td>
+        
+        <td><div class="cell" style="background:#3f9fb5;box-shadow:0 3px 0 #2c8299">
+          <div class="dn">SEP 29</div>
+          <div class="em">💧</div>
+          <div class="tn">Water Works</div>
+        </div></td>
+        
+        <td><div class="cell" style="background:#e8794b;box-shadow:0 3px 0 #c85c33">
+          <div class="dn">SEP 30</div>
+          <div class="em">🔥</div>
+          <div class="tn">Campfire Cooks</div>
+        </div></td>
+        
+        <td><div class="cell" style="background:#c98a3f;box-shadow:0 3px 0 #a86f28">
+          <div class="dn">OCT 1</div>
+          <div class="em">📦</div>
+          <div class="tn">Cardboard Machines</div>
+        </div></td>
+        
+        <td><div class="cell" style="background:#e0a92b;box-shadow:0 3px 0 #bd8c15">
+          <div class="dn">OCT 2</div>
+          <div class="em">☀️</div>
+          <div class="tn">Solar Explorers</div>
+        </div></td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <div class="note">↔️ Notice how each column shifts down a row each week — that's the rotation. A child who only comes on Tuesdays still meets every theme by month's end.</div>
+
+  <div class="cta" id="cta">
+    <div class="price">From $80/month (one day a week) · sessions 3:30–5:00 PM</div>
+    <a class="btn" href="mailto:hello@waterbearworkshop.org?subject=September%20enrollment">Enroll for September 2026</a>
+  </div>
+</div>
+
+<footer>
+  <p class="round" style="font-size:1.2rem;font-weight:700;margin-bottom:8px">🐻 Waterbear Workshop</p>
+  <p>Questions? <a href="mailto:hello@waterbearworkshop.org">hello@waterbearworkshop.org</a></p>
+</footer>
+</body>
+</html>

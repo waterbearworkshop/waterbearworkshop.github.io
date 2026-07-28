@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Waterbear Workshop — r3 · Membership</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1d2b24;--bg:#f6f8f6;--muted:#67716b;--accent:#1c6b48;--accent-d:#145136;--accent-l:#e7f2ec;--line:#e2e6e2}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+  a{color:inherit}
+  .top{display:flex;align-items:center;gap:14px;padding:15px 30px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:38px;z-index:40}
+  .top .brand{font-weight:800;font-size:1.15rem;color:var(--accent)}
+  .top nav{margin-left:auto;display:flex;gap:20px;font-size:.92rem;font-weight:600}.top nav a{text-decoration:none;color:var(--muted)}
+  .top nav a:hover{color:var(--accent)}
+  .hero{text-align:center;padding:60px 24px 30px;max-width:720px;margin:0 auto}
+  .hero .ey{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:16px}
+  .hero h1{font-size:clamp(2rem,5vw,3rem);letter-spacing:-.02em;line-height:1.05;margin-bottom:14px}
+  .hero p{font-size:1.12rem;color:var(--muted)}
+  .wrap{max-width:1000px;margin:0 auto;padding:24px}
+  h2.sec{text-align:center;font-size:1.5rem;margin:40px 0 6px}
+  .sub{text-align:center;color:var(--muted);margin-bottom:26px}
+  /* plans */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+  @media(max-width:720px){.plans{grid-template-columns:1fr}.top nav{display:none}}
+  .plan{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px;text-align:center}
+  .plan.feat{border:2px solid var(--accent);box-shadow:0 12px 30px rgba(28,107,72,.12);position:relative}
+  .plan.feat .flag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 14px;border-radius:999px}
+  .plan .days{font-size:.85rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em}
+  .plan .amt{font-size:2.4rem;font-weight:800;margin:8px 0 2px}
+  .plan .amt small{font-size:.9rem;font-weight:600;color:var(--muted)}
+  .plan .note{color:var(--muted);font-size:.9rem;min-height:52px;margin:10px 0 18px}
+  .plan .pick{display:block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:11px;border-radius:10px}
+  .plan:not(.feat) .pick{background:var(--accent-l);color:var(--accent-d)}
+  /* mini grid */
+  .mini{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;overflow-x:auto}
+  .mini table{width:100%;border-collapse:separate;border-spacing:6px;min-width:560px}
+  .mini th{font-size:.82rem;color:var(--muted);font-weight:700;padding:4px}
+  .mini .wk{text-align:left;color:var(--muted);font-weight:700;font-size:.82rem;white-space:nowrap}
+  .mini .c{border-radius:9px;padding:9px 6px;color:#fff;text-align:center;font-size:.78rem;font-weight:700;line-height:1.15}
+  .mini .c .e{font-size:1.1rem;display:block}
+  .legend{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+  .legend .lg{display:flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;color:var(--muted)}
+  .legend .sw{width:12px;height:12px;border-radius:4px}
+  .how{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}
+  @media(max-width:640px){.how{grid-template-columns:1fr}}
+  .how .h{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center}
+  .how .h .n{width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+  .how .h p{color:var(--muted);font-size:.92rem}
+  footer{text-align:center;color:var(--muted);font-size:.88rem;padding:36px;border-top:1px solid var(--line);margin-top:40px}
+  footer a{color:var(--accent);font-weight:600;text-decoration:none}
+</style>
+</head>
+<body>
+<div style="position:fixed; top:0; left:0; right:0; z-index:9999; background:#1a1a1a; color:#fff; font:13px/1.2 Inter,system-ui,sans-serif; padding:7px 12px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+  <a href="/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">← All versions</a>
+  <a href="/v0/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v0 · Sidebar</a>
+  <a href="/v1/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v1 · Nature-program</a>
+  <a href="/v2/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v2 · Schedule</a>
+  <a href="/v3/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v3 · Editorial</a>
+  <a href="/v4/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v4 · Playful</a>
+  <a href="/v5/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v5 · Minimal</a>
+  <span style="opacity:.45;">│ monthly:</span>
+  <a href="/r1/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">r1 · Grid</a>
+  <a href="/r2/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">r2 · Pick-a-day</a>
+  <a href="/r3/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:#c77d3a;">r3 · Membership</a>
+  <span style="opacity:.45;">│ à la carte:</span>
+  <a href="/a1/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">a1 · Calendar cart</a>
+  <a href="/a2/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">a2 · Menu</a>
+  <a href="/a3/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">a3 · Credits</a>
+  <span style="opacity:.6; margin-left:auto;">preview switcher — remove before launch</span>
+</div>
+<div style="height:38px;"></div>
+
+<header class="top">
+  <div class="brand">🐻 Waterbear Workshop</div>
+  <nav><a href="#plans">Plans</a><a href="#schedule">Schedule</a><a href="/about/">About</a></nav>
+</header>
+
+<section class="hero">
+  <div class="ey">Monthly membership · September 2026 · Ages 6–12</div>
+  <h1>One membership. A new build every day.</h1>
+  <p>Enroll for the month and pick how many afterschool days a week. Themes rotate weekly, so every visit is something different — 3:30–5:00 PM.</p>
+</section>
+
+<div class="wrap">
+  <h2 class="sec" id="plans">Choose your month</h2>
+  <p class="sub">One child + a grown-up. Cancel or change any month.</p>
+  <div class="plans">
+    
+    <div class="plan">
+      
+      <div class="days">One day a week</div>
+      <div class="amt">$80<small>/month</small></div>
+      <div class="note">Same weekday each week — cycle through the topics as they rotate to you.</div>
+      <a class="pick" href="mailto:hello@waterbearworkshop.org?subject=September%20enrollment%20—%201%20day(s)/week">Choose</a>
+    </div>
+    
+    <div class="plan feat">
+      <div class="flag">Most popular</div>
+      <div class="days">Two days a week</div>
+      <div class="amt">$150<small>/month</small></div>
+      <div class="note">Pick two weekdays. More topics, sooner.</div>
+      <a class="pick" href="mailto:hello@waterbearworkshop.org?subject=September%20enrollment%20—%202%20day(s)/week">Choose</a>
+    </div>
+    
+    <div class="plan">
+      
+      <div class="days">Every weekday</div>
+      <div class="amt">$325<small>/month</small></div>
+      <div class="note">The full rotation every week. Best value per day.</div>
+      <a class="pick" href="mailto:hello@waterbearworkshop.org?subject=September%20enrollment%20—%205%20day(s)/week">Choose</a>
+    </div>
+    
+  </div>
+
+  <h2 class="sec" id="schedule">The September 2026 rotation</h2>
+  <p class="sub">Same weekday every week cycles you through all 5 themes.</p>
+  <div class="mini">
+    <table>
+      <thead><tr><th></th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th></tr></thead>
+      <tbody>
+        
+        <tr>
+          <td class="wk">Wk 1</td>
+          
+          <td><div class="c" style="background:#e8794b"><span class="e">🔥</span>Campfire Cooks</div></td>
+          
+          <td><div class="c" style="background:#c98a3f"><span class="e">📦</span>Cardboard Machines</div></td>
+          
+          <td><div class="c" style="background:#e0a92b"><span class="e">☀️</span>Solar Explorers</div></td>
+          
+          <td><div class="c" style="background:#6d78c4"><span class="e">📡</span>Radio Messengers</div></td>
+          
+          <td><div class="c" style="background:#3f9fb5"><span class="e">💧</span>Water Works</div></td>
+          
+        </tr>
+        
+        <tr>
+          <td class="wk">Wk 2</td>
+          
+          <td><div class="c" style="background:#c98a3f"><span class="e">📦</span>Cardboard Machines</div></td>
+          
+          <td><div class="c" style="background:#e0a92b"><span class="e">☀️</span>Solar Explorers</div></td>
+          
+          <td><div class="c" style="background:#6d78c4"><span class="e">📡</span>Radio Messengers</div></td>
+          
+          <td><div class="c" style="background:#3f9fb5"><span class="e">💧</span>Water Works</div></td>
+          
+          <td><div class="c" style="background:#e8794b"><span class="e">🔥</span>Campfire Cooks</div></td>
+          
+        </tr>
+        
+        <tr>
+          <td class="wk">Wk 3</td>
+          
+          <td><div class="c" style="background:#e0a92b"><span class="e">☀️</span>Solar Explorers</div></td>
+          
+          <td><div class="c" style="background:#6d78c4"><span class="e">📡</span>Radio Messengers</div></td>
+          
+          <td><div class="c" style="background:#3f9fb5"><span class="e">💧</span>Water Works</div></td>
+          
+          <td><div class="c" style="background:#e8794b"><span class="e">🔥</span>Campfire Cooks</div></td>
+          
+          <td><div class="c" style="background:#c98a3f"><span class="e">📦</span>Cardboard Machines</div></td>
+          
+        </tr>
+        
+        <tr>
+          <td class="wk">Wk 4</td>
+          
+          <td><div class="c" style="background:#6d78c4"><span class="e">📡</span>Radio Messengers</div></td>
+          
+          <td><div class="c" style="background:#3f9fb5"><span class="e">💧</span>Water Works</div></td>
+          
+          <td><div class="c" style="background:#e8794b"><span class="e">🔥</span>Campfire Cooks</div></td>
+          
+          <td><div class="c" style="background:#c98a3f"><span class="e">📦</span>Cardboard Machines</div></td>
+          
+          <td><div class="c" style="background:#e0a92b"><span class="e">☀️</span>Solar Explorers</div></td>
+          
+        </tr>
+        
+      </tbody>
+    </table>
+    <div class="legend">
+      <span class="lg"><span class="sw" style="background:#e8794b"></span>Campfire Cooks</span><span class="lg"><span class="sw" style="background:#c98a3f"></span>Cardboard Machines</span><span class="lg"><span class="sw" style="background:#e0a92b"></span>Solar Explorers</span><span class="lg"><span class="sw" style="background:#6d78c4"></span>Radio Messengers</span><span class="lg"><span class="sw" style="background:#3f9fb5"></span>Water Works</span>
+    </div>
+  </div>
+
+  <h2 class="sec">How the rotation works</h2>
+  <div class="how">
+    <div class="h"><div class="n">1</div><p>Every weekday has a theme — cooking, cardboard, solar, radio, water.</p></div>
+    <div class="h"><div class="n">2</div><p>Each week the themes shift by one day, so the schedule keeps turning.</p></div>
+    <div class="h"><div class="n">3</div><p>Come the same day weekly and you'll meet every theme by month's end.</p></div>
+  </div>
+</div>
+
+<footer>Waterbear Workshop · Ages 6–12 with a grown-up · <a href="mailto:hello@waterbearworkshop.org">hello@waterbearworkshop.org</a></footer>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Waterbear Workshop — r2 · Pick a day</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#2b2340;--bg:#fff9f2;--muted:#6b6383}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+  h1,h2,h3,.round{font-family:'Baloo 2',system-ui,sans-serif}
+  a{color:inherit}
+  .top{display:flex;align-items:center;gap:16px;padding:15px 26px;position:sticky;top:38px;z-index:40;background:rgba(255,249,242,.92);backdrop-filter:blur(6px)}
+  .top .brand{font-family:'Baloo 2';font-weight:800;font-size:1.3rem;color:#ff7a9c}
+  .top nav{margin-left:auto;display:flex;gap:18px;font-weight:800}.top nav a{text-decoration:none}
+  .hero{text-align:center;padding:52px 24px 20px}
+  .hero .bubble{display:inline-block;background:#fff;border-radius:999px;padding:7px 17px;font-weight:800;box-shadow:0 3px 0 rgba(0,0,0,.06);margin-bottom:16px}
+  .hero h1{font-size:clamp(2rem,5.5vw,3.2rem);line-height:1.02;color:#3a2f5c;margin-bottom:12px}
+  .hero p{max-width:600px;margin:0 auto;color:var(--muted);font-size:1.12rem}
+  .wrap{max-width:760px;margin:0 auto;padding:20px 24px 60px}
+  .daypick{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:26px 0 8px}
+  .daybtn{font-family:'Baloo 2';font-weight:700;font-size:1rem;border:none;cursor:pointer;background:#fff;color:#3a2f5c;padding:12px 22px;border-radius:16px;box-shadow:0 4px 0 rgba(0,0,0,.08);transition:transform .1s}
+  .daybtn:hover{transform:translateY(-2px)}
+  .daybtn.active{background:#8e7bef;color:#fff;box-shadow:0 4px 0 #6d58d6}
+  .lead{text-align:center;font-family:'Baloo 2';font-weight:600;color:#6d58d6;font-size:1.15rem;margin:22px 0 18px}
+  .journey{display:none}
+  .journey.show{display:block}
+  .stop{display:flex;align-items:center;gap:18px;background:#fff;border-radius:20px;padding:16px 20px;margin-bottom:14px;box-shadow:0 5px 0 rgba(0,0,0,.05);position:relative}
+  .stop .em{width:64px;height:64px;flex:none;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:2rem;color:#fff}
+  .stop .wk{font-weight:800;color:var(--muted);font-size:.82rem;text-transform:uppercase;letter-spacing:.04em}
+  .stop h3{font-size:1.35rem;color:#3a2f5c;line-height:1.1}
+  .stop .bl{color:var(--muted);font-size:.92rem}
+  .stop:not(:last-child)::after{content:"";position:absolute;left:51px;bottom:-14px;height:14px;width:3px;background:#e4def5}
+  .payoff{background:linear-gradient(135deg,#ffe3ec,#e6ecff);border-radius:20px;padding:22px;text-align:center;margin-top:8px}
+  .payoff strong{color:#3a2f5c}
+  .cta{text-align:center;margin-top:26px}
+  .big{display:inline-block;font-family:'Baloo 2';font-weight:800;font-size:1.1rem;background:#ff7a9c;color:#fff;padding:14px 32px;border-radius:999px;text-decoration:none;box-shadow:0 5px 0 #e85a80}
+  @media(max-width:560px){.top nav{display:none}}
+  footer{text-align:center;padding:40px 24px;background:#3a2f5c;color:#e9e4ff}
+  footer a{color:#ffb3c8;font-weight:800;text-decoration:none}
+</style>
+</head>
+<body>
+<div style="position:fixed; top:0; left:0; right:0; z-index:9999; background:#1a1a1a; color:#fff; font:13px/1.2 Inter,system-ui,sans-serif; padding:7px 12px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+  <a href="/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">← All versions</a>
+  <a href="/v0/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v0 · Sidebar</a>
+  <a href="/v1/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v1 · Nature-program</a>
+  <a href="/v2/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v2 · Schedule</a>
+  <a href="/v3/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v3 · Editorial</a>
+  <a href="/v4/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v4 · Playful</a>
+  <a href="/v5/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">v5 · Minimal</a>
+  <span style="opacity:.45;">│ monthly:</span>
+  <a href="/r1/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">r1 · Grid</a>
+  <a href="/r2/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:#c77d3a;">r2 · Pick-a-day</a>
+  <a href="/r3/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">r3 · Membership</a>
+  <span style="opacity:.45;">│ à la carte:</span>
+  <a href="/a1/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">a1 · Calendar cart</a>
+  <a href="/a2/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">a2 · Menu</a>
+  <a href="/a3/" style="color:#fff; text-decoration:none; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.14);">a3 · Credits</a>
+  <span style="opacity:.6; margin-left:auto;">preview switcher — remove before launch</span>
+</div>
+<div style="height:38px;"></div>
+
+<header class="top">
+  <div class="brand">🐻 Waterbear Workshop</div>
+  <nav><a href="/about/">About</a><a href="mailto:hello@waterbearworkshop.org">Contact</a></nav>
+</header>
+
+<section class="hero">
+  <div class="bubble">🗓️ Afterschool · September 2026 · Ages 6–12</div>
+  <h1>Which day works for your family?</h1>
+  <p>Enroll for the month and come the same weekday each week. Because the themes rotate, you'll experience something new every visit.</p>
+</section>
+
+<div class="wrap">
+  <div class="daypick">
+    
+    <button class="daybtn active" data-day="0">Monday</button>
+    
+    <button class="daybtn" data-day="1">Tuesday</button>
+    
+    <button class="daybtn" data-day="2">Wednesday</button>
+    
+    <button class="daybtn" data-day="3">Thursday</button>
+    
+    <button class="daybtn" data-day="4">Friday</button>
+    
+  </div>
+
+  
+  
+  <div class="journey show" data-journey="0">
+    <p class="lead">If you come every <strong>Monday</strong> in September 2026, here's your month:</p>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#e8794b">🔥</div>
+      <div>
+        <div class="wk">Week 1 · Monday Sep 7</div>
+        <h3>Campfire Cooks</h3>
+        <div class="bl">Cook over a rocket stove; learn how fire really works.</div>
+      </div>
+    </div>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#c98a3f">📦</div>
+      <div>
+        <div class="wk">Week 2 · Monday Sep 14</div>
+        <h3>Cardboard Machines</h3>
+        <div class="bl">Turn a pile of cardboard into a machine that moves.</div>
+      </div>
+    </div>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#e0a92b">☀️</div>
+      <div>
+        <div class="wk">Week 3 · Monday Sep 21</div>
+        <h3>Solar Explorers</h3>
+        <div class="bl">Build a little solar-powered machine from sunlight.</div>
+      </div>
+    </div>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#6d78c4">📡</div>
+      <div>
+        <div class="wk">Week 4 · Monday Sep 28</div>
+        <h3>Radio Messengers</h3>
+        <div class="bl">Send messages across a field with off-grid mesh radios.</div>
+      </div>
+    </div>
+    
+    <div class="payoff">🎉 Over the month, your <strong>Mondays</strong> cover <strong>5 different themes</strong> — the whole rotation, one day a week.</div>
+  </div>
+  
+  
+  <div class="journey" data-journey="1">
+    <p class="lead">If you come every <strong>Tuesday</strong> in September 2026, here's your month:</p>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#c98a3f">📦</div>
+      <div>
+        <div class="wk">Week 1 · Tuesday Sep 8</div>
+        <h3>Cardboard Machines</h3>
+        <div class="bl">Turn a pile of cardboard into a machine that moves.</div>
+      </div>
+    </div>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#e0a92b">☀️</div>
+      <div>
+        <div class="wk">Week 2 · Tuesday Sep 15</div>
+        <h3>Solar Explorers</h3>
+        <div class="bl">Build a little solar-powered machine from sunlight.</div>
+      </div>
+    </div>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#6d78c4">📡</div>
+      <div>
+        <div class="wk">Week 3 · Tuesday Sep 22</div>
+        <h3>Radio Messengers</h3>
+        <div class="bl">Send messages across a field with off-grid mesh radios.</div>
+      </div>
+    </div>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#3f9fb5">💧</div>
+      <div>
+        <div class="wk">Week 4 · Tuesday Sep 29</div>
+        <h3>Water Works</h3>
+        <div class="bl">Filter, pump, and play with water — how clean water happens.</div>
+      </div>
+    </div>
+    
+    <div class="payoff">🎉 Over the month, your <strong>Tuesdays</strong> cover <strong>5 different themes</strong> — the whole rotation, one day a week.</div>
+  </div>
+  
+  
+  <div class="journey" data-journey="2">
+    <p class="lead">If you come every <strong>Wednesday</strong> in September 2026, here's your month:</p>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#e0a92b">☀️</div>
+      <div>
+        <div class="wk">Week 1 · Wednesday Sep 9</div>
+        <h3>Solar Explorers</h3>
+        <div class="bl">Build a little solar-powered machine from sunlight.</div>
+      </div>
+    </div>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#6d78c4">📡</div>
+      <div>
+        <div class="wk">Week 2 · Wednesday Sep 16</div>
+        <h3>Radio Messengers</h3>
+        <div class="bl">Send messages across a field with off-grid mesh radios.</div>
+      </div>
+    </div>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#3f9fb5">💧</div>
+      <div>
+        <div class="wk">Week 3 · Wednesday Sep 23</div>
+        <h3>Water Works</h3>
+        <div class="bl">Filter, pump, and play with water — how clean water happens.</div>
+      </div>
+    </div>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#e8794b">🔥</div>
+      <div>
+        <div class="wk">Week 4 · Wednesday Sep 30</div>
+        <h3>Campfire Cooks</h3>
+        <div class="bl">Cook over a rocket stove; learn how fire really works.</div>
+      </div>
+    </div>
+    
+    <div class="payoff">🎉 Over the month, your <strong>Wednesdays</strong> cover <strong>5 different themes</strong> — the whole rotation, one day a week.</div>
+  </div>
+  
+  
+  <div class="journey" data-journey="3">
+    <p class="lead">If you come every <strong>Thursday</strong> in September 2026, here's your month:</p>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#6d78c4">📡</div>
+      <div>
+        <div class="wk">Week 1 · Thursday Sep 10</div>
+        <h3>Radio Messengers</h3>
+        <div class="bl">Send messages across a field with off-grid mesh radios.</div>
+      </div>
+    </div>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#3f9fb5">💧</div>
+      <div>
+        <div class="wk">Week 2 · Thursday Sep 17</div>
+        <h3>Water Works</h3>
+        <div class="bl">Filter, pump, and play with water — how clean water happens.</div>
+      </div>
+    </div>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#e8794b">🔥</div>
+      <div>
+        <div class="wk">Week 3 · Thursday Sep 24</div>
+        <h3>Campfire Cooks</h3>
+        <div class="bl">Cook over a rocket stove; learn how fire really works.</div>
+      </div>
+    </div>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#c98a3f">📦</div>
+      <div>
+        <div class="wk">Week 4 · Thursday Oct 1</div>
+        <h3>Cardboard Machines</h3>
+        <div class="bl">Turn a pile of cardboard into a machine that moves.</div>
+      </div>
+    </div>
+    
+    <div class="payoff">🎉 Over the month, your <strong>Thursdays</strong> cover <strong>5 different themes</strong> — the whole rotation, one day a week.</div>
+  </div>
+  
+  
+  <div class="journey" data-journey="4">
+    <p class="lead">If you come every <strong>Friday</strong> in September 2026, here's your month:</p>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#3f9fb5">💧</div>
+      <div>
+        <div class="wk">Week 1 · Friday Sep 11</div>
+        <h3>Water Works</h3>
+        <div class="bl">Filter, pump, and play with water — how clean water happens.</div>
+      </div>
+    </div>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#e8794b">🔥</div>
+      <div>
+        <div class="wk">Week 2 · Friday Sep 18</div>
+        <h3>Campfire Cooks</h3>
+        <div class="bl">Cook over a rocket stove; learn how fire really works.</div>
+      </div>
+    </div>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#c98a3f">📦</div>
+      <div>
+        <div class="wk">Week 3 · Friday Sep 25</div>
+        <h3>Cardboard Machines</h3>
+        <div class="bl">Turn a pile of cardboard into a machine that moves.</div>
+      </div>
+    </div>
+    
+    
+    <div class="stop">
+      <div class="em" style="background:#e0a92b">☀️</div>
+      <div>
+        <div class="wk">Week 4 · Friday Oct 2</div>
+        <h3>Solar Explorers</h3>
+        <div class="bl">Build a little solar-powered machine from sunlight.</div>
+      </div>
+    </div>
+    
+    <div class="payoff">🎉 Over the month, your <strong>Fridays</strong> cover <strong>5 different themes</strong> — the whole rotation, one day a week.</div>
+  </div>
+  
+
+  <div class="cta">
+    <a class="big" href="mailto:hello@waterbearworkshop.org?subject=September%20enrollment">Enroll for September 2026 · from $80/mo →</a>
+  </div>
+</div>
+
+<footer>
+  <p class="round" style="font-size:1.25rem;font-weight:800;margin-bottom:8px">🐻 Waterbear Workshop</p>
+  <p>Sessions 3:30–5:00 PM · <a href="mailto:hello@waterbearworkshop.org">hello@waterbearworkshop.org</a></p>
+</footer>
+
+<script>
+  document.querySelectorAll('.daybtn').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.daybtn').forEach(function(x){x.classList.remove('active')});
+      b.classList.add('active');
+      var d=b.dataset.day;
+      document.querySelectorAll('.journey').forEach(function(j){
+        j.classList.toggle('show', j.dataset.journey===d);
+      });
+    });
+  });
+</script>
+</body>
+</html>

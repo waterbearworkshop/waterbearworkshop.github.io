@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Waterbear Workshop — design prototypes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#2a2a25;--bg:#fbf7ee;--muted:#6d6a5e;--green:#3f7d54;--green-d:#2c5b3c;--line:#ece4d3;--amber:#c77d3a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  h1,h2,h3,.round{font-family:Fredoka,system-ui,sans-serif}
+  a{color:inherit}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .hero{text-align:center;padding:70px 24px 30px}
+  .hero .logo{font-family:Fredoka;font-weight:700;font-size:1.3rem;color:var(--green);margin-bottom:22px}
+  .hero h1{font-size:clamp(2rem,5vw,3rem);color:var(--green-d);line-height:1.08;margin-bottom:16px}
+  .hero p{max-width:640px;margin:0 auto 12px;color:var(--muted);font-size:1.12rem}
+  .hero .tag{display:inline-block;background:#fff;color:var(--green);font-weight:800;padding:6px 16px;border-radius:999px;margin-top:8px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+  .prototype-note{max-width:640px;margin:22px auto 0;background:#fff5e2;border:1px solid #f0dcae;border-radius:12px;padding:12px 18px;font-size:.92rem;color:#8a6417}
+  .group{margin:44px 0 0}
+  .group > h2{font-size:1.5rem;color:var(--green-d);margin-bottom:4px}
+  .group > .gsub{color:var(--muted);margin-bottom:20px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:760px){.cards{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.cards{grid-template-columns:1fr}}
+  .vcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.05);transition:transform .12s,box-shadow .12s}
+  .vcard:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.09)}
+  .vcard .vkey{font-family:Fredoka;font-weight:700;font-size:.8rem;letter-spacing:.03em;color:#fff;background:var(--green);align-self:flex-start;padding:3px 11px;border-radius:999px;margin-bottom:12px}
+  .vcard.amber .vkey{background:var(--amber)}
+  .vcard.violet .vkey{background:#7d6cc4}
+  .vcard.violet .open{color:#6d58d6}
+  .vcard h3{font-size:1.2rem;color:var(--green-d);margin-bottom:6px}
+  .vcard p{color:var(--muted);font-size:.92rem;flex:1}
+  .vcard .open{margin-top:14px;font-weight:800;color:var(--green);font-size:.9rem}
+  .vcard.amber .open{color:var(--amber)}
+  .idea{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 28px;margin-top:8px;box-shadow:var(--shadow)}
+  .idea h2{color:var(--green-d);font-size:1.3rem;margin-bottom:10px}
+  .idea ul{margin:10px 0 0 20px;color:var(--muted)}
+  .idea li{margin-bottom:6px}
+  footer{text-align:center;color:var(--muted);font-size:.9rem;padding:50px 24px 60px}
+  footer a{color:var(--green);font-weight:700;text-decoration:none}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="logo">🐻 Waterbear Workshop</div>
+  <h1>Make, tinker &amp; explore — together.</h1>
+  <p>Hands-on outdoor workshops for curious kids <strong>ages 6–12</strong> and the grown-ups who bring them. Build a solar motor, send a message over a radio mesh, cook over a rocket stove — side by side.</p>
+  <div class="tag">🌿 waterbearworkshop.org</div>
+  <div class="prototype-note">🚧 This is a working prototype. Below are several homepage designs to compare — same content, different looks. Pick a direction and we'll build it out for real.</div>
+</section>
+
+<div class="wrap">
+  <section class="group">
+    <h2>Single-session designs</h2>
+    <p class="gsub">Families browse individual workshops and register for a specific date. Six looks at the same idea.</p>
+    <div class="cards">
+      
+      
+      <a class="vcard" href="/v0/">
+        <span class="vkey">v0</span>
+        <h3>Sidebar</h3>
+        <p>Matches the Waterbear Field School site — left sidebar nav, card grid.</p>
+        <span class="open">View v0 →</span>
+      </a>
+      
+      <a class="vcard" href="/v1/">
+        <span class="vkey">v1</span>
+        <h3>Nature-program</h3>
+        <p>Top nav + big hero, warm palette, photo cards. Closest to kids-naturally.com.</p>
+        <span class="open">View v1 →</span>
+      </a>
+      
+      <a class="vcard" href="/v2/">
+        <span class="vkey">v2</span>
+        <h3>Schedule</h3>
+        <p>Booking-first: a chronological agenda of every date with filters.</p>
+        <span class="open">View v2 →</span>
+      </a>
+      
+      <a class="vcard" href="/v3/">
+        <span class="vkey">v3</span>
+        <h3>Editorial</h3>
+        <p>Big serif type, alternating image/text rows, calm and grown-up.</p>
+        <span class="open">View v3 →</span>
+      </a>
+      
+      <a class="vcard" href="/v4/">
+        <span class="vkey">v4</span>
+        <h3>Playful</h3>
+        <p>Bright color-block tiles, emoji, bouncy — most kid-facing.</p>
+        <span class="open">View v4 →</span>
+      </a>
+      
+      <a class="vcard" href="/v5/">
+        <span class="vkey">v5</span>
+        <h3>Minimal</h3>
+        <p>Quiet boutique list, hairline dividers — most understated.</p>
+        <span class="open">View v5 →</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Monthly rotating schedule</h2>
+    <p class="gsub">Enroll for a month. Each weekday has a theme, and the themes rotate weekly — come the same day each week and you cycle through them all.</p>
+    <div class="cards">
+      
+      
+      <a class="vcard amber" href="/r1/">
+        <span class="vkey">r1</span>
+        <h3>Rotation grid</h3>
+        <p>The whole month as a color-coded weeks × weekdays calendar.</p>
+        <span class="open">View r1 →</span>
+      </a>
+      
+      <a class="vcard amber" href="/r2/">
+        <span class="vkey">r2</span>
+        <h3>Pick-a-day</h3>
+        <p>Tap a weekday to see your personal month-long journey through the themes.</p>
+        <span class="open">View r2 →</span>
+      </a>
+      
+      <a class="vcard amber" href="/r3/">
+        <span class="vkey">r3</span>
+        <h3>Membership</h3>
+        <p>Pricing-first: 1 / 2 / 5-days-a-week monthly plans + the rotation grid.</p>
+        <span class="open">View r3 →</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>À la carte</h2>
+    <p class="gsub">See a whole month of events and cherry-pick individual ones — mix and match, no fixed commitment.</p>
+    <div class="cards">
+      
+      
+      <a class="vcard violet" href="/a1/">
+        <span class="vkey">a1</span>
+        <h3>Calendar cart</h3>
+        <p>Browse the month as a calendar; tap days into a running cart, then register the lot.</p>
+        <span class="open">View a1 →</span>
+      </a>
+      
+      <a class="vcard violet" href="/a2/">
+        <span class="vkey">a2</span>
+        <h3>Event menu</h3>
+        <p>A chronological à-la-carte list with topic filters, add toggles, and a live total.</p>
+        <span class="open">View a2 →</span>
+      </a>
+      
+      <a class="vcard violet" href="/a3/">
+        <span class="vkey">a3</span>
+        <h3>Credit packs</h3>
+        <p>Buy a pack of credits up front and spend them on any events, any week.</p>
+        <span class="open">View a3 →</span>
+      </a>
+      
+    </div>
+  </section>
+</div>
+
+<footer>
+  Prototype directory · Waterbear Workshop · <a href="mailto:hello@waterbearworkshop.org">hello@waterbearworkshop.org</a>
+</footer>
+</body>
+</html>
